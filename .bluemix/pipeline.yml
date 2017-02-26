@@ -18,32 +18,4 @@ stages:
         type: builder
         artifact_dir: build
         build_type: npm
-        enable_tests: true
-        test_file_pattern: '*.xml, generated/*.xml'
-        script: |-
-          #!/bin/bash
-
-          git branch integration
-          git fetch origin integration
-          git merge integration --ff-only
-
-          export PATH=/opt/IBM/node-v4.2/bin:./node_modules/.bin:$PATH
-          npm i
-
-          npm run lint
-          npm run test:remote
-          npm run dist
-
-          git checkout integration
-          git pull origin integration
-          git merge dev1 --no-ff --log
-          git push origin integration
-
-          mkdir build
-
-          cp package.json build
-          cp .cfignore build
-          cp manifest-dev.yml build
-
-          cp -rf dist build
-          cp -rf server build
+        enable_tests: false
