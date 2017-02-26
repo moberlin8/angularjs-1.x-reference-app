@@ -8,10 +8,10 @@ stages:
       - type: commit
     properties:
       - name: SAUCE_USERNAME
-        value: ${SAUCE_USER}
+        value: moberlin
         type: text
       - name: SAUCE_ACCESS_KEY
-        value: ${SAUCE_KEY}
+        value: 6dd2c2e8-66e8-4b20-9abc-14a05f17ca41
         type: text
     jobs:
       - name: distribution
